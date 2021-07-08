@@ -8,11 +8,13 @@
 
 body {
   min-height: 100vh;
+  position: relative;
   display: flex;
   flex-direction: column;
   background-color: #181719;
 }
 
+/* HEADER */
 header {
   width: 100%;
   height: 92px;
@@ -25,6 +27,7 @@ header {
 .logo {
   position: relative;
   font-family: "Crimson Pro", serif;
+  font-weight: 200;
   font-size: 14px;
   line-height: 16px;
   color: #fff;
@@ -53,12 +56,82 @@ nav ul {
 nav ul li {
   display: inline-block;
   font-family: "Montserrat", sans-serif;
-  font-weight: bold;
   font-size: 18px;
   line-height: 22px;
   color: #fff;
+  cursor: pointer;
+  position: relative;
 }
 
+nav ul li:after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 28px;
+  border-bottom: 2px solid white;
+  opacity: 0;
+}
+
+nav ul li:hover {
+  font-weight: bold;
+}
+
+nav ul li:hover::after {
+  opacity: 1;
+  transition: all 0.2s ease-in;
+}
+
+.ham-btn {
+  width: 35px;
+  height: 25px;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  z-index: 10;
+  display: none;
+}
+
+.ham-btn-in {
+  width: 35px;
+  height: 3px;
+  background-color: white;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+
+.ham-btn-in::before,
+.ham-btn-in::after {
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 3px;
+  background-color: white;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+
+.ham-btn-in::before {
+  transform: translateY(9px);
+}
+.ham-btn-in::after {
+  transform: translateY(18px);
+}
+
+.open {
+  transform: rotate(45deg);
+}
+
+.ham-btn.open .ham-btn-in::before {
+  transition: opacity 0.2s;
+  opacity: 0;
+}
+
+.ham-btn.open .ham-btn-in::after {
+  transform: rotate(-90deg);
+}
+
+/* MAIN */
 main {
   min-height: calc(100vh - 120px);
   display: flex;
@@ -95,6 +168,14 @@ main {
   font-size: 18px;
   line-height: 22px;
   color: #fff;
+  position: relative;
+}
+
+.material-icons {
+  color: rgba(255, 255, 255, 1);
+  font-size: 35px;
+  line-height: 25px;
+  position: absolute;
 }
 
 .images-article {
@@ -161,6 +242,7 @@ main {
   line-height: 31px;
 }
 
+/* FOOTER */
 footer {
   width: 100%;
   height: 28px;
@@ -172,24 +254,69 @@ footer {
 }
 
 @media screen and (max-width: 1024px) {
+  header {
+    padding: 25px 20px;
+  }
+
+  .ham-btn {
+    display: block;
+  }
+
   main {
-    margin: 50px auto 150px auto;
+    padding-bottom: 150px;
     flex-direction: column;
   }
 
   .text-article {
     margin-bottom: 50px;
   }
+
+  /* NAV */
+  nav {
+    width: 100%;
+    max-width: unset;
+    height: 100%;
+    max-height: unset;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background-color: #181719;
+    transform: translateX(-100%);
+    transition: all 0.5s ease-in;
+  }
+
+  /* .open-menu{
+    transform
+  } */
+
+  nav ul {
+    width: 100%;
+    height: 50%;
+    margin-top: 25vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  nav ul li {
+    display: inline-block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+  }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
   header {
     padding: 25px 20px;
   }
 
   main {
     width: 100%;
-    min-height: unset;
     align-items: unset;
   }
 
@@ -216,6 +343,11 @@ footer {
   .text-article a {
     font-size: 14px;
     line-height: 17px;
+  }
+
+  .material-icons {
+    font-size: 30px;
+    line-height: 20px;
   }
 
   .images-article {

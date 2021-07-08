@@ -9,9 +9,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700&family=Montserrat:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200;700&family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap"
     rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -19,20 +20,23 @@
   <header>
     <div class="logo">THIS INTERIOR</div>
     <nav>
-      <ul>
+      <ul class="nav-list">
         <li>Home</li>
         <li>Collection</li>
         <li>About</li>
         <li>Contact</li>
       </ul>
     </nav>
+    <div class="ham-btn">
+      <div class="ham-btn-in"></div>
+    </div>
   </header>
   <main>
     <article class="text-article">
       <h1>Modern interior</h1>
       <p>A full-Service residential & commercial interior design and staging comapny offering professinal organizing &
-        eco-services.</p>
-      <a href="#">Read more</a>
+        eco&#8209;services.</p>
+      <a class="read-more" href="#">Read more&nbsp;&nbsp;&nbsp;<span class="material-icons">trending_flat</span></a>
     </article>
     <article class="images-article">
       <img class="main-pic" src="./photo1.png" alt="design picture">
@@ -54,6 +58,9 @@
   <footer>
     <h3>created by JonCat86 - devChallenges.io</h3>
   </footer>
+
+
+  <script src="app.js"></script>
 </body>
 
 </html>
