@@ -28,4 +28,4 @@
 
 - HTML
 - CSS
-- JavaScript
+- JavaScript (only the needed functions to accomplish the dev-challenge)
